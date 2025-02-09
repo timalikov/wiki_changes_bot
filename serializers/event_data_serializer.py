@@ -2,7 +2,7 @@ def serialize_event_data(data: dict) -> dict:
     return {
         "title": data.get("title", ""),
         "title_url": data.get("title_url", ""),
-        "user": data.get("user", ""),
+        "user_name": data.get("user", ""),
         "type": data.get("type", ""),
         "comment": data.get("comment", ""),
         "language": extract_language(data.get("meta", {}).get("domain", "")),
