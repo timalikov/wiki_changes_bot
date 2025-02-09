@@ -2,8 +2,8 @@ import asyncio
 import threading
 
 from discord_bot.bot import run_bot
-from kafka.kafka_consumer import consume
-from kafka.kafka_producer import push_to_kafka
+from kafka_service import consume
+from kafka_service import push_to_kafka
 
 
 async def main():

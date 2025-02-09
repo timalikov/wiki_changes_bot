@@ -22,7 +22,7 @@ class BasePsqlDTO():
             max_size=20,
         )
 
-        await self._create_table(pool)  
+        await self._create_tables(pool)  
         return pool
     
     @asynccontextmanager
@@ -32,7 +32,7 @@ class BasePsqlDTO():
             yield conn
         await pool.close()
 
-    async def _create_table(self, pool):
+    async def _create_tables(self, pool):
         """ 
         Creates recent_changes table 
         """
@@ -49,6 +49,15 @@ class BasePsqlDTO():
                     comment TEXT,
                     language VARCHAR(255),
                     timestamp BIGINT
+                )
+                """
+            )
+
+            await conn.execute(
+                """
+                CREATE TABLE IF NOT EXISTS user_lang (
+                    user_id BIGINT,
+                    lang VARCHAR(20) default 'unimportant'
                 )
                 """
             )

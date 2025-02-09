@@ -20,10 +20,13 @@ def push_to_kafka():
 
     for event in client:
         try:
-            data = json.loads(event.data)
-            parsed_data = serialize_event_data(data)
+            data: dict = json.loads(event.data)
+            parsed_data: dict = serialize_event_data(data)
             
             producer.send(KAFKA_TOPIC, value=parsed_data) 
+        except json.JSONDecodeError as e:
+            # logger.error(f"JSON data error: {e}")
+            pass
         except Exception as e:
             logger.error("Error processing event: %s", str(e))
             

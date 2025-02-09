@@ -1,4 +1,5 @@
 import os
+from discord_bot.enums.language_enum import Languages
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -23,3 +24,19 @@ DB_PASSWORD = get_env_var("DB_PASSWORD")
 
 #DISCORD BOT CONFIG
 DISCORD_BOT_TOKEN = get_env_var("DISCORD_BOT_TOKEN")
+
+LANGUAGE_NAMES = {
+    Languages.UNIMPORTANT: "Unimportant",
+    Languages.RU: "Russian",
+    Languages.EN: "English",
+    Languages.ES: "Spanish",
+    Languages.FR: "French",
+    Languages.DE: "German",
+    Languages.IT: "Italian",
+    Languages.PT: "Portuguese",
+    Languages.ZH: "Chinese",
+    Languages.JA: "Japanese",
+    Languages.KO: "Korean",
+    Languages.AR: "Arabic",
+    Languages.TR: "Turkish",
+}

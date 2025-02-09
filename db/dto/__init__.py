@@ -1,1 +1,2 @@
-from .dto_recent_changes import RecentChangesDTO
+from .recent_changes_dto import RecentChangesDTO
+from .user_lang_dto import UserLangDTO

@@ -1,0 +1,3 @@
+from .recent_changes_command import RecentChangesCommand
+from .set_lang_command import SetLangCommand
+from .stats_command import StatsCommand
