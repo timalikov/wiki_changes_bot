@@ -34,7 +34,7 @@ class BasePsqlDTO():
 
     async def _create_tables(self, pool):
         """ 
-        Creates recent_changes table 
+        Creates tables
         """
         
         async with pool.acquire() as conn:
@@ -56,8 +56,8 @@ class BasePsqlDTO():
             await conn.execute(
                 """
                 CREATE TABLE IF NOT EXISTS user_lang (
-                    user_id BIGINT,
-                    lang VARCHAR(20) default 'unimportant'
+                    user_id BIGINT PRIMARY KEY,
+                    lang VARCHAR(20) DEFAULT 'unimportant'
                 )
                 """
             )

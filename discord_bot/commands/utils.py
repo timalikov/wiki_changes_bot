@@ -9,7 +9,7 @@ async def get_user_language(user_lang_dto, interaction: discord.Interaction, lan
     - If 'Unimportant' or no language is selected, fetch the user's default language from the database
     - If the user has no saved language, then show all records without filtering (None returned)
     """
-    if language and language.value != "Unimportant":
+    if language and language.value != "unimportant":
         return language.value
     
     return await user_lang_dto.get_user_lang(user_id=interaction.user.id)

@@ -21,7 +21,7 @@ class SetLangCommand(commands.Cog):
         language: app_commands.Choice[str]
     ):
         user_lang_dto = UserLangDTO()
-        user_lang_dto.set_lang(user_id=interaction.user.id, lang=language.value)
+        await user_lang_dto.set_lang(user_id=interaction.user.id, lang=language.value)
 
         await interaction.response.send_message(f"Successfully changed default language to: {language.name}")
         
