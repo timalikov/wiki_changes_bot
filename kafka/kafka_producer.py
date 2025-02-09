@@ -1,6 +1,5 @@
 import json
 import logging
-import requests
 import sseclient
 from kafka import KafkaProducer
 
