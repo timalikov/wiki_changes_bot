@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord import app_commands
 
 from db.dto import UserLangDTO, RecentChangesDTO
-from discord_bot.enums.language_enum import Languages
+from enums.language_enum import Languages
 from .command_choices import language_options
 from discord_bot.commands.utils import get_user_language
 from config import LANGUAGE_NAMES

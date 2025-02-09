@@ -1,5 +1,5 @@
 import os
-from discord_bot.enums.language_enum import Languages
+from enums.language_enum import Languages
 from dotenv import load_dotenv
 
 load_dotenv()
