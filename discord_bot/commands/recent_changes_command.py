@@ -1,10 +1,12 @@
 from datetime import datetime
+from config import LANGUAGE_NAMES
 import discord
 from discord import app_commands
 from discord.ext import commands
 
 from db.dto import RecentChangesDTO, UserLangDTO
 from discord_bot.commands.utils import get_user_language
+from enums.language_enum import Languages
 from .command_choices import language_options
 
 
@@ -29,7 +31,7 @@ class RecentChangesCommand(commands.Cog):
         recent_changes_data: dict = await recent_changes_dto.get_recent_changes(lang=lang)
 
         message_embed = discord.Embed(
-            title = "The most recent changes",
+            title = f"The most recent changes \nFor language: {LANGUAGE_NAMES[Languages(lang)] if lang else "ALL"}",
             color = discord.Color.blue()
         )
 
