@@ -5,9 +5,9 @@ The system runs asynchronously, launching:
 - Kafka Consumer (processes and stores data)
 - Discord Bot (handles user commands to display filtered data)
 
-## Setup Instructions
+## Setup instructions
 
-1. **Python Setup**  
+1. **Python setup**  
    - Create a virtual environment:  
      ```sh
      python -m venv venv  
@@ -19,18 +19,18 @@ The system runs asynchronously, launching:
      ```  
    - ⚠ **Note**: Use **Python < 3.13** to avoid dependency issues.  
 
-2. **Kafka Setup**  
+2. **Kafka setup**  
    - Install Kafka and start the server.  
    - Create a topic for streaming data.  
 
-3. **Database Setup**  
+3. **Database setup**  
    - Install PostgreSQL and create a database.  
    - Tables will be created automatically when running the code.  
 
-4. **Environment Variables**  
+4. **Environment variables**  
    - Check `.env.example` and fill in your local configuration in `.env`.
   
-5. Run the Project
+5. Run the project
      ```sh
      python main.py
      ```
@@ -73,7 +73,16 @@ The system runs asynchronously, launching:
     - Uses **retries** for fault tolerance.
   - #### **Kafka Consumer (`consume()`)**  
     - Reads messages from **Kafka** asynchronously using `AIOKafkaConsumer`.  
-    - Parses data and **stores it in the database**.  
+    - Parses data and **stores it in the database**.
 
-
-
+## Scaling for large loads thoughts
+1. Kafka
+   - increasing number of partitions, separating data into partitions by some logic and reading from that as multiple consumers for each partition could help
+   - using real-time processing for stats or analytics using tools like Spark
+2. Database
+   - db indexing for faster reading
+   - db pooling already implemented, but improving it and optimizing could also help
+3. Infrastructure
+   - using more tools like nginx, docker for scaling and easier deployment, server perfomance and memory scaling could also help.
+4. Code organization and modularity
+   - existing code is scalable I think, and easy to maintain
